@@ -24,4 +24,4 @@ runs:
         PRIVATEKEY: ${{ inputs.app-private-key }}
         BODY: ${{ github.event.comment.body }}
         HTML_URL: ${{ github.event.comment.html_url }}
-        ISSUE_NUMBER: ${{ github.event.issue.id }}
+        ISSUE_NUMBER: ${{ github.event.issue.number }}
