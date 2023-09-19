@@ -1,0 +1,25 @@
+name: 'show-card-in-issue'
+description: 'Show some cards in an issue when requested to do so via /show'
+inputs:
+  app-id:
+    description: 'appid to use to comment and put image data'
+    required: true
+  app-private-key:
+    description: 'private key of app to use to comment and put image data'
+    required: true
+  sha:
+    description: 'sha for which data should be posted'
+    required: true
+  content-path:
+    description: 'path under which metadata and pdf can be found to extract data from'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: npm run $GITHUB_ACTION_PATH ${{ inputs.content-path }}
+      shell: bash
+      env:
+        sha: ${{ inputs.sha }}
+        GITHUB_PAYLOAD: ${{ github.payload }}
+        APPID: ${{ inputs.app-id }}
+        PRIVATEKEY: ${{ inputs.app-private-key }}
