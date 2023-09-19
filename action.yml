@@ -20,6 +20,6 @@ runs:
       shell: bash
       env:
         sha: ${{ inputs.sha }}
-        GITHUB_PAYLOAD: ${{ github.payload }}
+        GITHUB_EVENT: ${{ github.event }}
         APPID: ${{ inputs.app-id }}
         PRIVATEKEY: ${{ inputs.app-private-key }}

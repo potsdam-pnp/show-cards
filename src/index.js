@@ -4,7 +4,7 @@ const { createAppAuth } = require("@octokit/auth-app");
 
 
 async function main() {
-  const eventPayload = process.env.GITHUB_PAYLOAD;
+  const eventPayload = process.env.GITHUB_EVENT;
   let issue;
   let github;
   if (eventPayload) {
