@@ -22,6 +22,8 @@ async function main() {
     }
   }
 
+  console.log("Processing comment", issue);
+
   if (process.env.APPID && process.env.PRIVATEKEY) {
     const [owner, _repo] = (process.env.GITHUB_REPOSITORY ?? "/").split("/");
 
