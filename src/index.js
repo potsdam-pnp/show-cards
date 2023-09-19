@@ -32,7 +32,7 @@ async function main() {
       }
     });
 
-    console.log(installation.data);
+    console.log("Targeting installation", installation.data.id);
 
     github = new Octokit({
       authStrategy: createAppAuth,
@@ -42,8 +42,6 @@ async function main() {
         installationId: installation.data.id
       }
     });
-
-    return 0;
   }
 
   await showCardInIssue(github, issue, process.argv[2]);
