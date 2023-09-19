@@ -16,7 +16,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: npm run $GITHUB_ACTION_PATH ${{ inputs.content-path }}
+    - run: nix run $GITHUB_ACTION_PATH ${{ inputs.content-path }}
       shell: bash
       env:
         sha: ${{ inputs.sha }}
