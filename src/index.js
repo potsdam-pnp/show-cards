@@ -4,23 +4,13 @@ const { createAppAuth } = require("@octokit/auth-app");
 
 
 async function main() {
-  const eventPayload = process.env.GITHUB_EVENT;
-  let issue;
   let github;
-  if (eventPayload) {
-    const json = JSON.parse(eventPayload);
-    issue = {
-      body: json.comment.body,
-      htmlUrl: json.comment.html_url,
-      number: json.issue.id
-    }
-  } else {
-    issue = {
-      body: process.env.BODY ?? "",
-      htmlUrl: process.env.HTML_URL ?? "unknown",
-      number: process.env.ISSUE_NUMBER ?? "-1"
-    }
-  }
+  
+  const issue = {
+    body: process.env.BODY ?? "",
+    htmlUrl: process.env.HTML_URL ?? "unknown",
+    number: process.env.ISSUE_NUMBER ?? "-1"
+  };
 
   console.log("Processing comment", issue);
 

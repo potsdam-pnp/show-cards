@@ -20,6 +20,8 @@ runs:
       shell: bash
       env:
         sha: ${{ inputs.sha }}
-        GITHUB_EVENT: '${{ github.event }}'
         APPID: ${{ inputs.app-id }}
         PRIVATEKEY: ${{ inputs.app-private-key }}
+        BODY: ${{ github.event.comment.body }}
+        HTML_URL: ${{ github.event.comment.html_url }}
+        ISSUE_NUMBER: ${{ github.event.issue.id }}
